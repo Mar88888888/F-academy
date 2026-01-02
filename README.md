@@ -1,132 +1,102 @@
 # Football Academy Management System
 
-Система управління футбольною академією для тренерів, гравців та батьків.
+A management system for football academies designed for coaches, players, and parents.
 
-## Опис
+## Description
 
-Веб-застосунок для управління футбольною академією, який дозволяє:
-- Адміністраторам керувати користувачами, групами та подіями
-- Тренерам планувати тренування та матчі, відмічати відвідуваність, оцінювати гравців
-- Гравцям переглядати розклад та свою статистику
-- Батькам слідкувати за успіхами своїх дітей
+A web application for managing a football academy that allows:
+- Administrators to manage users, groups, and events
+- Coaches to plan trainings and matches, track attendance, and evaluate players
+- Players to view schedules and their statistics
+- Parents to monitor their children's progress
 
-## Функціонал
+## Features
 
-### Користувачі та ролі
-- **Admin** - повний доступ до всіх функцій
-- **Coach** - управління тренуваннями та матчами своїх груп
-- **Player** - перегляд розкладу та особистої статистики
-- **Parent** - перегляд статистики дітей
+### Users and Roles
+- **Admin** - full access to all features
+- **Coach** - management of trainings and matches for their groups
+- **Player** - view schedule and personal statistics
+- **Parent** - view children's statistics
 
-### Управління групами
-- Створення вікових груп (U-7, U-9, U-11, тощо)
-- Призначення головного тренера та асистентів
-- Додавання/видалення гравців
+### Group Management
+- Create age groups (U-7, U-9, U-11, etc.)
+- Assign head coach and assistants
+- Add/remove players
 
-### Тренування
-- Планування тренувань з темою та локацією
-- Автоматична генерація тренувань за тижневим графіком
-- Відмітка відвідуваності (Present, Late, Absent, Excused)
-- Оцінювання гравців за різними критеріями (1-10)
+### Trainings
+- Schedule trainings with topic and location
+- Automatic training generation based on weekly schedule
+- Attendance tracking (Present, Late, Absent, Excused)
+- Player evaluation by various criteria (1-10)
 
-### Матчі
-- Планування матчів з суперником та локацією
-- Фіксація результатів (голи, асисти для кожного гравця)
-- Відмітка відвідуваності
+### Matches
+- Schedule matches with opponent and location
+- Record results (goals, assists for each player)
+- Attendance tracking
 
-### Календар
-- Візуальний календар всіх подій
-- Фільтрація за групами
-- Швидкий перегляд деталей
+### Calendar
+- Visual calendar of all events
+- Filter by groups
+- Quick view of details
 
-### Статистика
-- Статистика гравця: матчі, голи, асисти, відвідуваність
-- Командна статистика для тренерів
-- Батьківський доступ до статистики дітей
+### Statistics
+- Player statistics: matches, goals, assists, attendance
+- Team statistics for coaches
+- Parent access to children's statistics
 
-## Технології
+## Technologies
 
 ### Backend
-- **NestJS** - Node.js фреймворк
-- **TypeORM** - ORM для роботи з базою даних
-- **PostgreSQL** - реляційна база даних
-- **JWT** - аутентифікація
-- **bcrypt** - хешування паролів
+- **NestJS** - Node.js framework
+- **TypeORM** - ORM for database operations
+- **PostgreSQL** - relational database
+- **JWT** - authentication
+- **bcrypt** - password hashing
 
 ### Frontend
-- **React 19** - UI бібліотека
-- **TypeScript** - типізація
-- **Vite** - збірка та dev-сервер
-- **Tailwind CSS 4** - стилізація
-- **React Router 7** - маршрутизація
-- **Axios** - HTTP клієнт
+- **React 19** - UI library
+- **TypeScript** - type safety
+- **Vite** - build tool and dev server
+- **Tailwind CSS 4** - styling
+- **React Router 7** - routing
+- **Axios** - HTTP client
 
-### Інфраструктура
-- **Docker Compose** - контейнеризація сервісів
-- **PostgreSQL 15** - база даних (порт 5433)
-- **pgAdmin 4** - веб-інтерфейс для БД (порт 5050)
-- **Redis** - кешування (порт 6379)
+### Infrastructure
+- **Docker Compose** - service containerization
+- **PostgreSQL 15** - database (port 5433)
+- **pgAdmin 4** - web interface for DB (port 5050)
+- **Redis** - caching (port 6379)
 
-## Структура проекту
+## Installation
 
-```
-F-academy/
-├── backend/                 # NestJS API
-│   ├── src/
-│   │   ├── auth/           # Аутентифікація (JWT, guards)
-│   │   ├── users/          # Користувачі
-│   │   ├── coaches/        # Тренери
-│   │   ├── players/        # Гравці
-│   │   ├── parents/        # Батьки
-│   │   ├── groups/         # Групи
-│   │   ├── events/         # Тренування, матчі, графіки
-│   │   ├── attendance/     # Відвідуваність
-│   │   ├── evaluations/    # Оцінки
-│   │   ├── common/         # Спільні сутності
-│   │   └── database/       # Seeds
-│   └── package.json
-├── frontend/               # React SPA
-│   ├── src/
-│   │   ├── api/           # API клієнти
-│   │   ├── components/    # Компоненти (ProtectedRoute, тощо)
-│   │   ├── contexts/      # React контексти (Auth)
-│   │   ├── pages/         # Сторінки
-│   │   └── types/         # TypeScript типи
-│   └── package.json
-├── docker-compose.yml      # Docker сервіси
-└── README.md
-```
-
-## Встановлення
-
-### Вимоги
+### Requirements
 - Node.js 18+
-- Docker та Docker Compose
-- npm або yarn
+- Docker and Docker Compose
+- npm or yarn
 
-### 1. Клонування репозиторію
+### 1. Clone the repository
 ```bash
 git clone <repo-url>
 cd F-academy
 ```
 
-### 2. Запуск Docker сервісів
+### 2. Start Docker services
 ```bash
 docker-compose up -d
 ```
 
-Це запустить:
-- PostgreSQL на порті `5433`
-- pgAdmin на порті `5050`
-- Redis на порті `6379`
+This will start:
+- PostgreSQL on port `5433`
+- pgAdmin on port `5050`
+- Redis on port `6379`
 
-### 3. Налаштування Backend
+### 3. Backend Setup
 ```bash
 cd backend
 npm install
 ```
 
-Створіть файл `.env`:
+Create a `.env` file:
 ```env
 DATABASE_HOST=localhost
 DATABASE_PORT=5433
@@ -138,132 +108,93 @@ JWT_SECRET=your-super-secret-jwt-key
 JWT_EXPIRES_IN=7d
 ```
 
-### 4. Налаштування Frontend
+### 4. Frontend Setup
 ```bash
 cd frontend
 npm install
 ```
 
-## Запуск
+## Running
 
-### Backend (порт 3000)
+### Backend (port 3000)
 ```bash
 cd backend
 npm run start:dev
 ```
 
-### Frontend (порт 5173)
+### Frontend (port 5173)
 ```bash
 cd frontend
 npm run dev
 ```
 
-## Початкові дані
+## Initial Data
 
-### Створення адміністратора
+### Create Administrator
 ```bash
 cd backend
 npm run seed:admin
 ```
-Створює користувача:
+Creates user:
 - Email: `admin@footballacademy.com`
 - Password: `admin123`
-
-### Тестові дані
-```bash
-cd backend
-npm run seed:test-data
-```
-Створює:
-- 3 тренерів
-- 2 групи (U-19, U-17)
-- 10 гравців
-- 2 батьків (з прив'язкою до дітей)
-- 5 тренувань
-- 2 матчі з результатами
-
-**Тестові акаунти:**
-| Роль | Email | Пароль |
-|------|-------|--------|
-| Admin | admin@footballacademy.com | admin123 |
-| Coach | coach1@footballacademy.com | coach123 |
-| Coach | coach2@footballacademy.com | coach123 |
-| Player | player1@footballacademy.com | player123 |
-| Parent | parent1@footballacademy.com | parent123 |
 
 ## API Endpoints
 
 ### Auth
-- `POST /auth/login` - вхід в систему
+- `POST /auth/login` - login
 
 ### Users
-- `GET /users` - список користувачів (Admin)
-- `POST /users` - створення користувача (Admin)
-- `PATCH /users/:id` - оновлення (Admin)
-- `DELETE /users/:id` - видалення (Admin)
+- `GET /users` - list users (Admin)
+- `POST /users` - create user (Admin)
+- `PATCH /users/:id` - update (Admin)
+- `DELETE /users/:id` - delete (Admin)
 
 ### Groups
-- `GET /groups` - всі групи (Admin)
-- `GET /groups/my` - мої групи (Coach, Player, Parent)
-- `POST /groups` - створення (Admin)
-- `PATCH /groups/:id` - оновлення (Admin)
-- `PATCH /groups/:id/staff` - призначення тренерів (Admin)
-- `POST /groups/:id/players` - додати гравців (Admin)
-- `DELETE /groups/:id/players` - видалити гравців (Admin)
+- `GET /groups` - all groups (Admin)
+- `GET /groups/my` - my groups (Coach, Player, Parent)
+- `POST /groups` - create (Admin)
+- `PATCH /groups/:id` - update (Admin)
+- `PATCH /groups/:id/staff` - assign coaches (Admin)
+- `POST /groups/:id/players` - add players (Admin)
+- `DELETE /groups/:id/players` - remove players (Admin)
 
 ### Trainings
-- `GET /trainings` - список тренувань
-- `POST /trainings` - створення (Admin, Coach)
-- `GET /trainings/:id` - деталі
-- `PATCH /trainings/:id` - оновлення (Admin, Coach)
-- `DELETE /trainings/:id` - видалення (Admin, Coach)
+- `GET /trainings` - list trainings
+- `POST /trainings` - create (Admin, Coach)
+- `GET /trainings/:id` - details
+- `PATCH /trainings/:id` - update (Admin, Coach)
+- `DELETE /trainings/:id` - delete (Admin, Coach)
 
 ### Matches
-- `GET /matches` - список матчів
-- `POST /matches` - створення (Admin, Coach)
-- `GET /matches/:id` - деталі з результатами
-- `PATCH /matches/:id` - оновлення (Admin, Coach)
-- `PUT /matches/:id/goals` - оновити голи (Admin, Coach)
-- `DELETE /matches/:id` - видалення (Admin, Coach)
+- `GET /matches` - list matches
+- `POST /matches` - create (Admin, Coach)
+- `GET /matches/:id` - details with results
+- `PATCH /matches/:id` - update (Admin, Coach)
+- `PUT /matches/:id/goals` - update goals (Admin, Coach)
+- `DELETE /matches/:id` - delete (Admin, Coach)
 
 ### Attendance
-- `GET /attendance/training/:id` - відвідуваність тренування
-- `PUT /attendance/training/:id` - оновити відвідуваність
-- `GET /attendance/match/:id` - відвідуваність матчу
-- `PUT /attendance/match/:id` - оновити відвідуваність
-- `GET /attendance/my/stats` - моя статистика (Player)
+- `GET /attendance/training/:id` - training attendance
+- `PUT /attendance/training/:id` - update attendance
+- `GET /attendance/match/:id` - match attendance
+- `PUT /attendance/match/:id` - update attendance
+- `GET /attendance/my/stats` - my statistics (Player)
 
 ### Evaluations
-- `GET /evaluations/training/:id` - оцінки тренування
-- `PUT /evaluations/training/:id` - оновити оцінки (Coach)
+- `GET /evaluations/training/:id` - training evaluations
+- `PUT /evaluations/training/:id` - update evaluations (Coach)
 
 ### Schedules
-- `GET /groups/:id/schedule` - графік групи
-- `PUT /groups/:id/schedule` - оновити графік
-- `POST /groups/:id/schedule/generate` - згенерувати тренування
-- `DELETE /groups/:id/schedule/trainings` - видалити згенеровані
+- `GET /groups/:id/schedule` - group schedule
+- `PUT /groups/:id/schedule` - update schedule
+- `POST /groups/:id/schedule/generate` - generate trainings
+- `DELETE /groups/:id/schedule/trainings` - delete generated
 
 ### Players
-- `GET /players/stats/my` - моя статистика (Player)
-- `GET /players/stats/team/:groupId` - статистика команди (Coach)
-- `GET /players/stats/children` - статистика дітей (Parent)
+- `GET /players/stats/my` - my statistics (Player)
+- `GET /players/stats/team/:groupId` - team statistics (Coach)
+- `GET /players/stats/children` - children statistics (Parent)
 
 ### Calendar
-- `GET /calendar` - події календаря
-
-## pgAdmin
-
-Доступ: http://localhost:5050
-- Email: `admin@footballacademy.com`
-- Password: `admin`
-
-Підключення до БД:
-- Host: `postgres` (в Docker мережі) або `localhost`
-- Port: `5432` (в Docker) або `5433` (зовні)
-- Database: `football_academy`
-- User: `postgres`
-- Password: `postgres`
-
-## Ліцензія
-
-MIT
+- `GET /calendar` - calendar events
